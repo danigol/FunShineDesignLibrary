@@ -44,5 +44,5 @@ fun FsTextField(
 @Preview
 @Composable
 fun PreviewFsTextField() {
-    FsTextField(value = "Oh, hey, put some text here!") { "" }
+    FsTextField(value = "Oh, hey, put some text here!") {  }
 }
