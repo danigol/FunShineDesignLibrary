@@ -25,6 +25,9 @@ object FsTextStyle {
     const val HEADING_FONT_SIZE: Int = 28
     const val BUTTON_FONT_WEIGHT: Int = 450
     const val BUTTON_FONT_SIZE: Int = 20
+    const val MAX_LINES_HEADING: Int = 1
+    const val MAX_LINES_CONTROLS: Int = 1
+    const val MAX_LINES_BODY: Int = 8
 }
 
 @Composable
@@ -38,6 +41,14 @@ fun getBodyFontStyle(): TextStyle {
             ),
             blurRadius = ThemeConstants.SHADOW_BLUR_RADIUS
         ),
+        fontWeight = FontWeight(BODY_FONT_WEIGHT),
+        fontSize = BODY_FONT_SIZE.sp
+    )
+}
+
+@Composable
+fun getBodyFontStyleWithoutShadow(): TextStyle {
+    return typography.bodyLarge.copy(
         fontWeight = FontWeight(BODY_FONT_WEIGHT),
         fontSize = BODY_FONT_SIZE.sp
     )
