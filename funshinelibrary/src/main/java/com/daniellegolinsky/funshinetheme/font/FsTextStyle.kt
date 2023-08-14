@@ -71,6 +71,14 @@ fun getHeadingFontStyle(): TextStyle {
 }
 
 @Composable
+fun getHeadingFontStyleWithoutShadow(): TextStyle {
+    return typography.bodyLarge.copy(
+        fontWeight = FontWeight(HEADING_FONT_WEIGHT),
+        fontSize = HEADING_FONT_SIZE.sp
+    )
+}
+
+@Composable
 fun getButtonTextStyle(): TextStyle {
     return typography.bodyLarge.copy(
         fontWeight = FontWeight(BUTTON_FONT_WEIGHT),
