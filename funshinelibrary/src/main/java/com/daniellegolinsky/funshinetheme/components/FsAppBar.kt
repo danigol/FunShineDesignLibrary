@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.daniellegolinsky.funshinetheme.font.getHeadingFontStyleWithoutShadow
 
@@ -20,8 +21,8 @@ import com.daniellegolinsky.funshinetheme.font.getHeadingFontStyleWithoutShadow
 @Composable
 fun FsAppBar(
     headingText: String? = null,
+    modifier: Modifier = Modifier,
     backButtonAction: () -> Unit,
-    modifier: Modifier = Modifier
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -31,7 +32,7 @@ fun FsAppBar(
             backButtonAction()
         }
         headingText?.let {heading ->
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = Modifier.width(8.dp))
             Text(
                 text = heading,
                 style = getHeadingFontStyleWithoutShadow(),
@@ -39,4 +40,10 @@ fun FsAppBar(
             )
         }
     }
+}
+
+@Preview
+@Composable
+fun PreviewFsAppBar() {
+    FsAppBar(headingText = "Heading"){}
 }
