@@ -1,22 +1,19 @@
 package com.daniellegolinsky.funshinetheme.components
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.CustomAccessibilityAction
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.clearAndSetSemantics
-import androidx.compose.ui.semantics.customActions
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.tooling.preview.Preview
@@ -42,33 +39,39 @@ fun FsTwoStateSwitch(
         id = R.string.two_state_toggle_content_description,
         optionOneString,
         optionTwoString,
-        if (optionTwoSelected) {
-            optionTwoString
-        } else {
-            optionOneString
-        }
+        getSelectedString(
+            optionTwoSelected = optionTwoSelected,
+            optionOneString = optionOneString,
+            optionTwoString = optionTwoString
+        )
     )
-    val optionTwoSelectedString =
-        stringResource(id = R.string.two_state_toggle_switch_description, optionTwoString)
-    val optionOneSelectedString =
-        stringResource(id = R.string.two_state_toggle_switch_description, optionOneString)
+
+    val switchStateSelected = stringResource(
+        id = R.string.two_state_toggle_status,
+        getSelectedString(
+            optionTwoSelected = optionTwoSelected,
+            optionOneString = optionOneString,
+            optionTwoString = optionTwoString
+        )
+    )
 
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .semantics(mergeDescendants = true) {
-                customActions =
-                    listOf(
-                        CustomAccessibilityAction(accessibilityOutputString) { true } // TODO This will be a method that takes in the boolean switch
-                    )
+                contentDescription = accessibilityOutputString
+                role = Role.Switch
             },
     ) {
         FsBodyTextWithoutShadow(
             text = optionOneString,
             maxLines = 1,
+            modifier = Modifier.clearAndSetSemantics {},
         )
-        Spacer(modifier = Modifier.width(8.dp))
+        Spacer(modifier = Modifier
+            .width(8.dp)
+            .clearAndSetSemantics {})
         Switch(
             checked = optionTwoSelected,
             colors = SwitchDefaults.colors(
@@ -82,17 +85,16 @@ fun FsTwoStateSwitch(
             thumbContent = {},
             onCheckedChange = onOptionChanged,
             modifier = Modifier.semantics {
-                stateDescription = if (optionTwoSelected) {
-                    optionTwoSelectedString
-                } else {
-                    optionOneSelectedString
-                }
+                stateDescription = switchStateSelected
             }
         )
-        Spacer(modifier = Modifier.width(8.dp))
+        Spacer(modifier = Modifier
+            .width(8.dp)
+            .clearAndSetSemantics {})
         FsBodyTextWithoutShadow(
             text = optionTwoString,
             maxLines = 1,
+            modifier = Modifier.clearAndSetSemantics {},
         )
     }
 }
@@ -117,4 +119,17 @@ fun PreviewFsTwoStateSwitchOn() {
         optionTwoSelected = true,
         onOptionChanged = {},
     )
+}
+
+@Composable
+private fun getSelectedString(
+    optionTwoSelected: Boolean,
+    optionOneString: String,
+    optionTwoString: String,
+): String {
+    return if (optionTwoSelected) {
+        optionTwoString
+    } else {
+        optionOneString
+    }
 }
