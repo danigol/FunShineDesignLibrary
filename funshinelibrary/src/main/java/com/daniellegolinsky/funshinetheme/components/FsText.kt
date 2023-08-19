@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import com.daniellegolinsky.funshinetheme.designelements.getTextColor
 import com.daniellegolinsky.funshinetheme.font.getBodyFontStyle
@@ -19,6 +20,7 @@ fun FsText(
     text: String,
     maxLines: Int = 8, // TODO Make a constant/Style
     textStyle: TextStyle,
+    textDecoration: TextDecoration? = null,
     modifier: Modifier = Modifier
 ) {
     Text(
@@ -27,6 +29,7 @@ fun FsText(
         color = getTextColor(),
         maxLines = maxLines,
         style = textStyle,
+        textDecoration = textDecoration,
         modifier = modifier,
     )
 }
