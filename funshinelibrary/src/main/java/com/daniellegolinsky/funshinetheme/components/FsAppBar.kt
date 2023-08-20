@@ -32,11 +32,12 @@ fun FsAppBar(
             backButtonAction()
         }
         headingText?.let {heading ->
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(
+            Spacer(modifier = Modifier.width(2.dp))
+            FsBodyTextWithoutShadow(
                 text = heading,
+                maxLines = 1,
                 style = getHeadingFontStyleWithoutShadow(),
-                modifier = Modifier.semantics { heading() }
+                modifier = Modifier.semantics { heading() },
             )
         }
     }
