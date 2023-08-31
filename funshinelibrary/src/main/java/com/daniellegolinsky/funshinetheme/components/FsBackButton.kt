@@ -7,7 +7,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
-import com.daniellegolinsky.themeresources.R
+import com.daniellegolinsky.funshinetheme.R
 
 /**
  * A back button with RTL support

@@ -5,7 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.daniellegolinsky.themeresources.R
+import com.daniellegolinsky.funshinetheme.R
 
 /**
  * A simple FsIconButton wrapper that includes the icon and content description automatically

@@ -9,6 +9,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.MaterialTheme.typography
+import com.daniellegolinsky.funshinewearlibrary.R
 import com.daniellegolinsky.funshinewearlibrary.designelements.ThemeConstants
 import com.daniellegolinsky.funshinewearlibrary.designelements.getShadowAlpha
 import com.daniellegolinsky.funshinewearlibrary.font.FsWearTextStyle.BODY_FONT_SIZE
@@ -17,7 +18,6 @@ import com.daniellegolinsky.funshinewearlibrary.font.FsWearTextStyle.BUTTON_FONT
 import com.daniellegolinsky.funshinewearlibrary.font.FsWearTextStyle.BUTTON_FONT_WEIGHT
 import com.daniellegolinsky.funshinewearlibrary.font.FsWearTextStyle.HEADING_FONT_SIZE
 import com.daniellegolinsky.funshinewearlibrary.font.FsWearTextStyle.HEADING_FONT_WEIGHT
-import com.daniellegolinsky.themeresources.R
 
 object FsWearTextStyle {
     const val BODY_FONT_WEIGHT: Int = 450

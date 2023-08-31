@@ -5,10 +5,11 @@ plugins {
 
 android {
     namespace 'com.daniellegolinsky.funshinewearlibrary'
-    compileSdk 34
+    compileSdk 33
 
     defaultConfig {
-        minSdk 30
+        minSdk 28
+        targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -24,18 +25,22 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "$KOTLIN_COMPILER_EXTENSION_VERSION"
+    kotlinOptions {
+        jvmTarget = "$KOTLIN_JVM_TARGET"
     }
     buildFeatures {
         compose true
+        buildConfig true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "$KOTLIN_COMPILER_EXTENSION_VERSION"
     }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
 
     implementation "androidx.wear.compose:compose-material:$WEAR_COMPOSE_VERSION"
     implementation "androidx.wear.compose:compose-foundation:$WEAR_COMPOSE_VERSION"
@@ -52,6 +57,4 @@ dependencies {
     implementation 'androidx.wear.watchface:watchface-complications-data-source-ktx:1.1.1'
 
     implementation 'androidx.compose.ui:ui-tooling-preview-android:1.5.0'
-
-    implementation project(path: ':themeresources')
 }

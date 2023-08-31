@@ -15,10 +15,10 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.daniellegolinsky.funshinetheme.R
 import com.daniellegolinsky.funshinetheme.designelements.getForegroundItemColor
 import com.daniellegolinsky.funshinetheme.designelements.getTextColor
 import com.daniellegolinsky.funshinetheme.font.getButtonTextStyle
-import com.daniellegolinsky.themeresources.R
 
 /**
  * FunShine sees data as projected and controls on the surface of a screen.

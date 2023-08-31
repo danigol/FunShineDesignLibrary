@@ -17,10 +17,10 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.daniellegolinsky.funshinetheme.R
 import com.daniellegolinsky.funshinetheme.designelements.getForegroundItemColor
 import com.daniellegolinsky.funshinetheme.designelements.getTextColor
 import com.daniellegolinsky.funshinetheme.font.getBodyFontStyleWithoutShadow
-import com.daniellegolinsky.themeresources.R
 
 @Composable
 fun FsForwardButton(
@@ -42,7 +42,7 @@ fun FsForwardButton(
         )
         Spacer(modifier = Modifier.width(2.dp))
         Icon(
-            painter = painterResource(id = R.drawable.ic_arrow_right_black), 
+            painter = painterResource(id = R.drawable.ic_arrow_right_black),
             contentDescription = stringResource(id = R.string.forward_button_content_description),
             tint = getForegroundItemColor(),
             modifier = Modifier.height(20.dp)

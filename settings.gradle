@@ -16,4 +16,4 @@ rootProject.name = "FunShineDesignLibrary"
 include ':funshinelibrary'
 include ':designresources'
 include ':funshineWearLibrary'
-include ':themeresources'
+include ':funshinethemeresources'

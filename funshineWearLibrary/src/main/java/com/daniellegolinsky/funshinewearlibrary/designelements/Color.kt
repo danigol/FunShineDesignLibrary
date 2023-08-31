@@ -1,27 +1,26 @@
 package com.daniellegolinsky.funshinewearlibrary.designelements
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
-import com.daniellegolinsky.themeresources.R
+import com.daniellegolinsky.funshinewearlibrary.R
 
 @Composable
-fun getBackgroundColor(): Color {
-    return if (isSystemInDarkTheme()) colorResource(id = R.color.gray_800) else colorResource(id = R.color.gray_100)
+fun getBackgroundColor(isDarkColor: Boolean = false): Color {
+    return if (isDarkColor) colorResource(id = R.color.gray_800) else colorResource(id = R.color.gray_100)
 }
 
 @Composable
-fun getTextColor(): Color {
-    return if (isSystemInDarkTheme()) colorResource(id = R.color.white) else colorResource(id = R.color.black)
+fun getTextColor(isDarkColor: Boolean = false): Color {
+    return if (isDarkColor) colorResource(id = R.color.white) else colorResource(id = R.color.black)
 }
 
 @Composable
-fun getForegroundItemColor(): Color {
-    return if (isSystemInDarkTheme()) colorResource(id = R.color.white) else colorResource(id = R.color.black)
+fun getForegroundItemColor(isDarkColor: Boolean = false): Color {
+    return if (isDarkColor) colorResource(id = R.color.white) else colorResource(id = R.color.black)
 }
 
 @Composable
-fun getShadowAlpha(): Float {
-    return if (isSystemInDarkTheme()) 0.75f else 0.15f
+fun getShadowAlpha(isDarkColor: Boolean = false): Float {
+    return if (isDarkColor) 0.75f else 0.15f
 }
