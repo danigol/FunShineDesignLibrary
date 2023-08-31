@@ -18,9 +18,9 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.daniellegolinsky.funshinetheme.R
 import com.daniellegolinsky.funshinetheme.designelements.getBackgroundColor
 import com.daniellegolinsky.funshinetheme.designelements.getForegroundItemColor
+import com.daniellegolinsky.themeresources.R
 
 /**
  * "False" for optionTwoSelected will, obviously, mean option one is selected

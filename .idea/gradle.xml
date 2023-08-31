@@ -8,12 +8,14 @@
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="/usr/local/Cellar/gradle/7.2/libexec" />
-        <option name="gradleJvm" value="Embedded JDK" />
+        <option name="gradleJvm" value="jbr-17" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/designresources" />
+            <option value="$PROJECT_DIR$/funshineWearLibrary" />
             <option value="$PROJECT_DIR$/funshinelibrary" />
+            <option value="$PROJECT_DIR$/themeresources" />
           </set>
         </option>
       </GradleProjectSettings>

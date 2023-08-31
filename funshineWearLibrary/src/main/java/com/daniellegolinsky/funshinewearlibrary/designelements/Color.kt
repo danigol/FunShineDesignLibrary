@@ -1,4 +1,4 @@
-package com.daniellegolinsky.funshinetheme.designelements
+package com.daniellegolinsky.funshinewearlibrary.designelements
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
@@ -23,5 +23,5 @@ fun getForegroundItemColor(): Color {
 
 @Composable
 fun getShadowAlpha(): Float {
-    return if (isSystemInDarkTheme()) 0.80f else 0.2f
+    return if (isSystemInDarkTheme()) 0.75f else 0.15f
 }
