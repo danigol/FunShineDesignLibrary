@@ -17,10 +17,10 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.daniellegolinsky.funshinetheme.R
 import com.daniellegolinsky.funshinetheme.designelements.getForegroundItemColor
 import com.daniellegolinsky.funshinetheme.designelements.getTextColor
 import com.daniellegolinsky.funshinetheme.font.getBodyFontStyleWithoutShadow
+import com.daniellegolinsky.themeresources.R
 
 @Composable
 fun FsForwardButton(

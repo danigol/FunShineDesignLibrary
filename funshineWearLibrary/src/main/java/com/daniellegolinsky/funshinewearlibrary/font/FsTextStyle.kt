@@ -1,24 +1,25 @@
-package com.daniellegolinsky.funshinetheme.font
+package com.daniellegolinsky.funshinewearlibrary.font
 
-import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants
-import com.daniellegolinsky.funshinetheme.designelements.getShadowAlpha
-import com.daniellegolinsky.funshinetheme.font.FsTextStyle.BODY_FONT_SIZE
-import com.daniellegolinsky.funshinetheme.font.FsTextStyle.BODY_FONT_WEIGHT
-import com.daniellegolinsky.funshinetheme.font.FsTextStyle.BUTTON_FONT_SIZE
-import com.daniellegolinsky.funshinetheme.font.FsTextStyle.BUTTON_FONT_WEIGHT
-import com.daniellegolinsky.funshinetheme.font.FsTextStyle.HEADING_FONT_SIZE
-import com.daniellegolinsky.funshinetheme.font.FsTextStyle.HEADING_FONT_WEIGHT
+import androidx.wear.compose.material.MaterialTheme.typography
+import com.daniellegolinsky.funshinewearlibrary.designelements.ThemeConstants
+import com.daniellegolinsky.funshinewearlibrary.designelements.getShadowAlpha
+import com.daniellegolinsky.funshinewearlibrary.font.FsWearTextStyle.BODY_FONT_SIZE
+import com.daniellegolinsky.funshinewearlibrary.font.FsWearTextStyle.BODY_FONT_WEIGHT
+import com.daniellegolinsky.funshinewearlibrary.font.FsWearTextStyle.BUTTON_FONT_SIZE
+import com.daniellegolinsky.funshinewearlibrary.font.FsWearTextStyle.BUTTON_FONT_WEIGHT
+import com.daniellegolinsky.funshinewearlibrary.font.FsWearTextStyle.HEADING_FONT_SIZE
+import com.daniellegolinsky.funshinewearlibrary.font.FsWearTextStyle.HEADING_FONT_WEIGHT
 import com.daniellegolinsky.themeresources.R
 
-object FsTextStyle {
+object FsWearTextStyle {
     const val BODY_FONT_WEIGHT: Int = 450
     const val HEADING_FONT_WEIGHT: Int = 600
     const val BODY_FONT_SIZE: Int = 16
@@ -32,12 +33,13 @@ object FsTextStyle {
 
 @Composable
 fun getBodyFontStyle(): TextStyle {
-    return typography.bodyLarge.copy(
+    return typography.body1.copy(
         shadow = Shadow(
-            color = colorResource(id = R.color.black).copy(alpha = getShadowAlpha()),
+//            color = colorResource(id = R.color.black).copy(alpha = getShadowAlpha()),
+            color = Color.Black.copy(alpha = getShadowAlpha()),
             offset = Offset(
-                x = ThemeConstants.SHADOW_OFFSET_X,
-                y = ThemeConstants.SHADOW_OFFSET_Y,
+                x = ThemeConstants.SHADOW_OFFSET_X_FLOAT,
+                y = ThemeConstants.SHADOW_OFFSET_Y_FLOAT
             ),
             blurRadius = ThemeConstants.SHADOW_BLUR_RADIUS
         ),
@@ -48,7 +50,7 @@ fun getBodyFontStyle(): TextStyle {
 
 @Composable
 fun getBodyFontStyleWithoutShadow(): TextStyle {
-    return typography.bodyLarge.copy(
+    return typography.body1.copy(
         fontWeight = FontWeight(BODY_FONT_WEIGHT),
         fontSize = BODY_FONT_SIZE.sp
     )
@@ -56,12 +58,12 @@ fun getBodyFontStyleWithoutShadow(): TextStyle {
 
 @Composable
 fun getHeadingFontStyle(): TextStyle {
-    return typography.bodyLarge.copy(
+    return typography.body1.copy(
         shadow = Shadow(
             color = colorResource(id = R.color.black).copy(alpha = getShadowAlpha()),
             offset = Offset(
-                x = ThemeConstants.SHADOW_OFFSET_X,
-                y = ThemeConstants.SHADOW_OFFSET_Y,
+                x = ThemeConstants.SHADOW_OFFSET_X_FLOAT,
+                y = ThemeConstants.SHADOW_OFFSET_Y_FLOAT
             ),
             blurRadius = ThemeConstants.SHADOW_BLUR_RADIUS
         ),
@@ -72,7 +74,7 @@ fun getHeadingFontStyle(): TextStyle {
 
 @Composable
 fun getHeadingFontStyleWithoutShadow(): TextStyle {
-    return typography.bodyLarge.copy(
+    return typography.body1.copy(
         fontWeight = FontWeight(HEADING_FONT_WEIGHT),
         fontSize = HEADING_FONT_SIZE.sp
     )
@@ -80,7 +82,7 @@ fun getHeadingFontStyleWithoutShadow(): TextStyle {
 
 @Composable
 fun getButtonTextStyle(): TextStyle {
-    return typography.bodyLarge.copy(
+    return typography.body1.copy(
         fontWeight = FontWeight(BUTTON_FONT_WEIGHT),
         fontSize = BUTTON_FONT_SIZE.sp
     )
