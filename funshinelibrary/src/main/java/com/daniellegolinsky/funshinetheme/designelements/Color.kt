@@ -4,7 +4,7 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
-import com.daniellegolinsky.themeresources.R
+import com.daniellegolinsky.funshinetheme.R
 
 @Composable
 fun getBackgroundColor(): Color {

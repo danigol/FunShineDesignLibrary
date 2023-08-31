@@ -12,12 +12,12 @@ import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.daniellegolinsky.funshinetheme.R
 import com.daniellegolinsky.funshinetheme.designelements.getForegroundItemColor
 import com.daniellegolinsky.funshinetheme.designelements.getShadowAlpha
 import com.daniellegolinsky.funshinetheme.designelements.getShadowBlurRadius
 import com.daniellegolinsky.funshinetheme.designelements.getShadowXOffset
 import com.daniellegolinsky.funshinetheme.designelements.getShadowYOffset
-import com.daniellegolinsky.themeresources.R
 
 /**
  * In the FunShine design language, data is "projected" above the screen. Like a physical hologram

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="location_button_content_description">Fetch precise location button</string>
+    <string name="back_button_content_description">Back</string>
+    <string name="forward_button_content_description">Forward arrow</string>
+    <string name="two_state_toggle_content_description">%1$s or %2$s, %3$s selected. Double tap to toggle.</string>
+    <string name="two_state_toggle_status">%1$s selected</string>
+</resources>
