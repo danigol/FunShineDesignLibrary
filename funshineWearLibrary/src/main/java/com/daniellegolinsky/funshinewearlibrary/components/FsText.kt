@@ -16,7 +16,7 @@ import com.daniellegolinsky.funshinewearlibrary.font.getBodyFontStyle
  * This will automatically cast a shadow for your text.
  */
 @Composable
-fun FsWearText(
+fun FsText(
     text: String,
     maxLines: Int = 8, // TODO Make a constant/Style
     textStyle: TextStyle,
@@ -37,7 +37,7 @@ fun FsWearText(
 @Preview
 @Composable
 fun PreviewFsWearText() {
-    FsWearText(
+    FsText(
         text = "This is some Funshine Text! Have fun in the sun! Or not!",
         textStyle = getBodyFontStyle()
     )

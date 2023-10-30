@@ -7,9 +7,9 @@ import com.daniellegolinsky.funshinewearlibrary.designelements.ThemeConstants.SH
 import com.daniellegolinsky.funshinewearlibrary.designelements.ThemeConstants.SHADOW_OFFSET_Y_FLOAT
 
 object ThemeConstants {
-    const val SHADOW_OFFSET_X_FLOAT = 20.0f
-    const val SHADOW_OFFSET_Y_FLOAT = 20.0f
-    const val SHADOW_BLUR_RADIUS = 6.0f
+    const val SHADOW_OFFSET_X_FLOAT = 12.0f
+    const val SHADOW_OFFSET_Y_FLOAT = 12.0f
+    const val SHADOW_BLUR_RADIUS = 9.0f
 }
 
 // TODO these will eventually be defined differently to define degrees for a cast shadow
