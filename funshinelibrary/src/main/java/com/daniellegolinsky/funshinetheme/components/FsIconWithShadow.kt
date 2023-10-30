@@ -1,6 +1,8 @@
 package com.daniellegolinsky.funshinetheme.components
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -12,6 +14,7 @@ import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.daniellegolinsky.funshinetheme.R
 import com.daniellegolinsky.funshinetheme.designelements.getForegroundItemColor
 import com.daniellegolinsky.funshinetheme.designelements.getShadowAlpha
@@ -31,25 +34,36 @@ fun FsIconWithShadow(
     imageResourceContentDescription: String?,
     modifier: Modifier = Modifier
 ) {
-    Box(modifier = modifier.fillMaxWidth()) {
-        Icon(
-            painter = image,
-            contentDescription = null,
-            modifier = Modifier
-                .alpha(alpha = getShadowAlpha())
-                .offset(
-                    x = getShadowXOffset(),
-                    y = getShadowYOffset()
-                ) // TODO This will be an angle and customizable
-                .blur(radius = getShadowBlurRadius())
-                .padding(maxOf(getShadowXOffset(), getShadowYOffset())),
-        )
-        Icon(
-            painter = image,
-            contentDescription = imageResourceContentDescription,
-            tint = getForegroundItemColor(),
-            modifier = Modifier.padding(maxOf(getShadowXOffset(), getShadowYOffset())),
-        )
+    Row(
+        horizontalArrangement = Arrangement.Center,
+        modifier = modifier.fillMaxWidth(),
+    ) {
+        Box {
+            Icon(
+                painter = image,
+                contentDescription = null,
+                modifier = Modifier
+                    .alpha(alpha = getShadowAlpha())
+                    .offset(
+                        x = getShadowXOffset(),
+                        y = getShadowYOffset()
+                    ) // TODO This will be an angle and customizable
+                    .blur(radius = getShadowBlurRadius())
+                    .padding(
+                        horizontal = getShadowBlurRadius() + getShadowXOffset(),
+                        vertical = getShadowBlurRadius() + getShadowYOffset()
+                    ),
+            )
+            Icon(
+                painter = image,
+                contentDescription = imageResourceContentDescription,
+                tint = getForegroundItemColor(),
+                modifier = Modifier.padding(
+                    horizontal = getShadowBlurRadius() + getShadowXOffset(),
+                    vertical = getShadowBlurRadius() + getShadowYOffset()
+                )
+            )
+        }
     }
 }
 

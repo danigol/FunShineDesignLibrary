@@ -7,8 +7,8 @@ import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants.SHADOW_O
 import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants.SHADOW_OFFSET_Y_FLOAT
 
 object ThemeConstants {
-    const val SHADOW_OFFSET_X_FLOAT = 40.0f
-    const val SHADOW_OFFSET_Y_FLOAT = 40.0f
+    const val SHADOW_OFFSET_X_FLOAT = 32.0f
+    const val SHADOW_OFFSET_Y_FLOAT = 32.0f
     const val SHADOW_BLUR_RADIUS = 12.0f
 }
 
