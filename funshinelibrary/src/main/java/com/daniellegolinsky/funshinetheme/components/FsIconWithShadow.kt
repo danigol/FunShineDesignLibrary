@@ -1,6 +1,7 @@
 package com.daniellegolinsky.funshinetheme.components
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -31,24 +32,24 @@ fun FsIconWithShadow(
     imageResourceContentDescription: String?,
     modifier: Modifier = Modifier
 ) {
-    Box(modifier = modifier.fillMaxWidth()) {
+    Box() {
         Icon(
             painter = image,
             contentDescription = null,
-            modifier = Modifier
+            modifier = modifier
                 .alpha(alpha = getShadowAlpha())
                 .offset(
                     x = getShadowXOffset(),
                     y = getShadowYOffset()
                 ) // TODO This will be an angle and customizable
                 .blur(radius = getShadowBlurRadius())
-                .padding(maxOf(getShadowXOffset(), getShadowYOffset())),
+                .padding(maxOf(getShadowXOffset(), getShadowYOffset()))
         )
         Icon(
             painter = image,
             contentDescription = imageResourceContentDescription,
             tint = getForegroundItemColor(),
-            modifier = Modifier.padding(maxOf(getShadowXOffset(), getShadowYOffset())),
+            modifier = modifier.padding(maxOf(getShadowXOffset(), getShadowYOffset())),
         )
     }
 }
