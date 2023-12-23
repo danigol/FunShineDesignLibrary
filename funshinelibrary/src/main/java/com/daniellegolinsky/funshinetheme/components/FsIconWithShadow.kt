@@ -3,8 +3,10 @@ package com.daniellegolinsky.funshinetheme.components
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -13,6 +15,8 @@ import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.daniellegolinsky.funshinetheme.R
 import com.daniellegolinsky.funshinetheme.designelements.getForegroundItemColor
 import com.daniellegolinsky.funshinetheme.designelements.getShadowAlpha
@@ -32,11 +36,13 @@ fun FsIconWithShadow(
     imageResourceContentDescription: String?,
     modifier: Modifier = Modifier
 ) {
-    Box() {
+    Box(
+        modifier = modifier
+    ) {
         Icon(
             painter = image,
             contentDescription = null,
-            modifier = modifier
+            modifier = Modifier
                 .alpha(alpha = getShadowAlpha())
                 .offset(
                     x = getShadowXOffset(),
@@ -44,12 +50,13 @@ fun FsIconWithShadow(
                 ) // TODO This will be an angle and customizable
                 .blur(radius = getShadowBlurRadius())
                 .padding(maxOf(getShadowXOffset(), getShadowYOffset()))
+//                .fillMaxWidth()
         )
         Icon(
             painter = image,
             contentDescription = imageResourceContentDescription,
             tint = getForegroundItemColor(),
-            modifier = modifier.padding(maxOf(getShadowXOffset(), getShadowYOffset())),
+            modifier = Modifier.padding(maxOf(getShadowXOffset(), getShadowYOffset())),
         )
     }
 }
@@ -60,5 +67,15 @@ fun PreviewWeatherStatusImage() {
     FsIconWithShadow(
         image = painterResource(id = R.drawable.ic_circle_black),
         imageResourceContentDescription = "Circle"
+    )
+}
+
+@Preview
+@Composable
+fun PreviewWeatherStatusImageWH() {
+    FsIconWithShadow(
+        image = painterResource(id = R.drawable.ic_circle_black),
+        imageResourceContentDescription = "Circle",
+        modifier = Modifier.width(128.dp).height(128.dp)
     )
 }
