@@ -19,6 +19,7 @@ import com.daniellegolinsky.funshinetheme.R
 import com.daniellegolinsky.funshinetheme.designelements.getDefaultShadowOffset
 import com.daniellegolinsky.funshinetheme.designelements.getForegroundItemColor
 import com.daniellegolinsky.funshinetheme.designelements.getShadowAlpha
+import com.daniellegolinsky.funshinetheme.designelements.getDefaultShadowBlurRadius
 import com.daniellegolinsky.funshinetheme.designelements.getShadowBlurRadius
 import com.daniellegolinsky.funshinetheme.designelements.getShadowXOffset
 import com.daniellegolinsky.funshinetheme.designelements.getShadowYOffset
@@ -34,9 +35,12 @@ fun FsIconWithShadow(
     image: Painter,
     imageResourceContentDescription: String?,
     size: Dp,
-    shadowOffset: DpOffset = getDefaultShadowOffset(), // TODO Make this conditional on size?
+    providedShadowHeight: DpOffset? = null,
     modifier: Modifier = Modifier
 ) {
+    val shadowOffset = providedShadowHeight ?: getDefaultShadowOffset()
+    val shadowBlur = getShadowBlurRadius(size)
+
     Box(
         modifier = modifier
     ) {
@@ -49,7 +53,7 @@ fun FsIconWithShadow(
                     x = shadowOffset.x,
                     y = shadowOffset.y,
                 )
-                .blur(radius = getShadowBlurRadius())
+                .blur(radius = shadowBlur)
                 .padding(maxOf(getShadowXOffset(), getShadowYOffset()))
                 .size(size)
         )

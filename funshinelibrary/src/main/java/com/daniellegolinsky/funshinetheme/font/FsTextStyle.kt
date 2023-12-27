@@ -36,8 +36,8 @@ fun getBodyFontStyle(): TextStyle {
         shadow = Shadow(
             color = colorResource(id = R.color.black).copy(alpha = getShadowAlpha()),
             offset = Offset(
-                x = ThemeConstants.SHADOW_OFFSET_X_FLOAT,
-                y = ThemeConstants.SHADOW_OFFSET_Y_FLOAT
+                x = ThemeConstants.SHADOW_OFFSET_X,
+                y = ThemeConstants.SHADOW_OFFSET_Y,
             ),
             blurRadius = ThemeConstants.SHADOW_BLUR_RADIUS
         ),
@@ -60,8 +60,8 @@ fun getHeadingFontStyle(): TextStyle {
         shadow = Shadow(
             color = colorResource(id = R.color.black).copy(alpha = getShadowAlpha()),
             offset = Offset(
-                x = ThemeConstants.SHADOW_OFFSET_X_FLOAT,
-                y = ThemeConstants.SHADOW_OFFSET_Y_FLOAT
+                x = ThemeConstants.SHADOW_OFFSET_X,
+                y = ThemeConstants.SHADOW_OFFSET_Y,
             ),
             blurRadius = ThemeConstants.SHADOW_BLUR_RADIUS
         ),
