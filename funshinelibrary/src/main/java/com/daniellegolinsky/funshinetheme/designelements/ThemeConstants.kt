@@ -1,6 +1,7 @@
 package com.daniellegolinsky.funshinetheme.designelements
 
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants.SHADOW_BLUR_RADIUS
 import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants.SHADOW_OFFSET_X_FLOAT
@@ -13,6 +14,8 @@ object ThemeConstants {
 }
 
 // TODO these will eventually be defined differently to define degrees for a cast shadow
+fun getDefaultShadowOffset(): DpOffset = DpOffset(x = getShadowXOffset(), y= getShadowYOffset())
+
 fun getShadowXOffset(): Dp {
     return SHADOW_OFFSET_X_FLOAT.dp
 }
