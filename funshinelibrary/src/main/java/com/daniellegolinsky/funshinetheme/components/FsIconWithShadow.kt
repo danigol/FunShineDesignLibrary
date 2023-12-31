@@ -19,7 +19,6 @@ import com.daniellegolinsky.funshinetheme.R
 import com.daniellegolinsky.funshinetheme.designelements.getDefaultShadowOffset
 import com.daniellegolinsky.funshinetheme.designelements.getForegroundItemColor
 import com.daniellegolinsky.funshinetheme.designelements.getShadowAlpha
-import com.daniellegolinsky.funshinetheme.designelements.getDefaultShadowBlurRadius
 import com.daniellegolinsky.funshinetheme.designelements.getShadowBlurRadius
 import com.daniellegolinsky.funshinetheme.designelements.getShadowXOffset
 import com.daniellegolinsky.funshinetheme.designelements.getShadowYOffset
@@ -35,11 +34,12 @@ fun FsIconWithShadow(
     image: Painter,
     imageResourceContentDescription: String?,
     size: Dp,
-    providedShadowHeight: DpOffset? = null,
+    providedShadowDepth: DpOffset? = null,
+    providedBlur: Dp? = null,
     modifier: Modifier = Modifier
 ) {
-    val shadowOffset = providedShadowHeight ?: getDefaultShadowOffset()
-    val shadowBlur = getShadowBlurRadius(size)
+    val shadowOffset = providedShadowDepth ?: getDefaultShadowOffset()
+    val shadowBlur = providedBlur ?: getShadowBlurRadius(size)
 
     Box(
         modifier = modifier
