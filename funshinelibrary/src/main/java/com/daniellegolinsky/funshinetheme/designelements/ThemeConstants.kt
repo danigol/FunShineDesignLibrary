@@ -5,6 +5,7 @@ import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants.SHADOW_BLUR_RADIUS
 import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants.SHADOW_BLUR_RADIUS_HALF
+import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants.SHADOW_BLUR_RADIUS_QUARTER
 import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants.SHADOW_OFFSET_X
 import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants.SHADOW_OFFSET_X_HALF
 import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants.SHADOW_OFFSET_X_QUARTER
@@ -21,7 +22,40 @@ object ThemeConstants {
     const val SHADOW_OFFSET_Y_QUARTER = 10.0f
     const val SHADOW_BLUR_RADIUS = 12.0f
     const val SHADOW_BLUR_RADIUS_HALF = 6.0f
+    const val SHADOW_BLUR_RADIUS_QUARTER = 3.0f
 }
+
+data class ShadowMatrix(
+    val shadowOffsetHeight: DpOffset,
+    val shadowBlur: Dp,
+)
+
+object Shadow {
+    fun getInformationShadow(itemSize: Dp): ShadowMatrix = ShadowMatrix(
+        shadowOffsetHeight = getDefaultShadowOffset(),
+        shadowBlur = getShadowBlurRadius(itemSize),
+    )
+    fun getDefaultInformationShadow(): ShadowMatrix = ShadowMatrix(
+        shadowOffsetHeight = getDefaultShadowOffset(),
+        shadowBlur = getDefaultShadowBlurRadius(),
+    )
+
+    fun getLowPriorityInformationShadow(): ShadowMatrix = ShadowMatrix(
+        shadowOffsetHeight = getHalfShadowOffset(),
+        shadowBlur = getShadowHalfBlurRadius(),
+    )
+
+    fun getControlHintShadow(): ShadowMatrix = ShadowMatrix(
+        shadowOffsetHeight = getQuarterShadowOffset(),
+        shadowBlur = getShadowQuarterBlurRadius(),
+    )
+
+    fun getControlShadow(): ShadowMatrix = ShadowMatrix(
+        shadowOffsetHeight = DpOffset(0.dp, 0.dp),
+        shadowBlur = 0.dp,
+    )
+}
+
 
 // TODO these will eventually be defined differently to define degrees for a cast shadow
 fun getDefaultShadowOffset(): DpOffset = DpOffset(x = getShadowXOffset(), y= getShadowYOffset())
@@ -64,4 +98,12 @@ fun getShadowBlurRadius(imageSize: Dp): Dp {
     } else {
         SHADOW_BLUR_RADIUS.dp
     }
+}
+
+fun getShadowHalfBlurRadius(): Dp {
+    return SHADOW_BLUR_RADIUS_HALF.dp
+}
+
+fun getShadowQuarterBlurRadius(): Dp {
+    return SHADOW_BLUR_RADIUS_QUARTER.dp
 }

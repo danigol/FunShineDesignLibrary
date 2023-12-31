@@ -16,6 +16,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import com.daniellegolinsky.funshinetheme.R
+import com.daniellegolinsky.funshinetheme.designelements.Shadow
+import com.daniellegolinsky.funshinetheme.designelements.ShadowMatrix
 import com.daniellegolinsky.funshinetheme.designelements.getDefaultShadowOffset
 import com.daniellegolinsky.funshinetheme.designelements.getForegroundItemColor
 import com.daniellegolinsky.funshinetheme.designelements.getShadowAlpha
@@ -34,12 +36,10 @@ fun FsIconWithShadow(
     image: Painter,
     imageResourceContentDescription: String?,
     size: Dp,
-    providedShadowDepth: DpOffset? = null,
-    providedBlur: Dp? = null,
+    providedShadowMatrix: ShadowMatrix? = null,
     modifier: Modifier = Modifier
 ) {
-    val shadowOffset = providedShadowDepth ?: getDefaultShadowOffset()
-    val shadowBlur = providedBlur ?: getShadowBlurRadius(size)
+    val shadowMatrix = providedShadowMatrix ?: Shadow.getDefaultInformationShadow()
 
     Box(
         modifier = modifier
@@ -50,10 +50,10 @@ fun FsIconWithShadow(
             modifier = Modifier
                 .alpha(alpha = getShadowAlpha())
                 .offset(
-                    x = shadowOffset.x,
-                    y = shadowOffset.y,
+                    x = shadowMatrix.shadowOffsetHeight.x,
+                    y = shadowMatrix.shadowOffsetHeight.y,
                 )
-                .blur(radius = shadowBlur)
+                .blur(radius = shadowMatrix.shadowBlur)
                 .padding(maxOf(getShadowXOffset(), getShadowYOffset()))
                 .size(size)
         )
