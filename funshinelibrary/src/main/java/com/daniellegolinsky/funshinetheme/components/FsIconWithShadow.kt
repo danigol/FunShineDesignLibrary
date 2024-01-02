@@ -54,7 +54,7 @@ fun FsIconWithShadow(
                     y = shadowMatrix.shadowOffsetHeight.y,
                 )
                 .blur(radius = shadowMatrix.shadowBlur)
-                .padding(maxOf(getShadowXOffset(), getShadowYOffset()))
+                .padding(maxOf(shadowMatrix.shadowOffsetHeight.x, shadowMatrix.shadowOffsetHeight.y))
                 .size(size)
         )
         Icon(
@@ -62,7 +62,7 @@ fun FsIconWithShadow(
             contentDescription = imageResourceContentDescription,
             tint = getForegroundItemColor(),
             modifier = Modifier
-                .padding(maxOf(getShadowXOffset(), getShadowYOffset()))
+                .padding(maxOf(shadowMatrix.shadowOffsetHeight.x, shadowMatrix.shadowOffsetHeight.y))
                 .size(size)
         )
     }
