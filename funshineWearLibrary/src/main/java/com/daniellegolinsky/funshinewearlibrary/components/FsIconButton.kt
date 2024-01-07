@@ -32,10 +32,10 @@ fun FsIconButton(
     Button(
         shape = RectangleShape,
         colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent,
-            disabledContainerColor = Color.Transparent,
+            contentColor = Color.Transparent,
+            disabledBackgroundColor = Color.Transparent,
         ),
-        contentPadding = PaddingValues(0.dp),
+//        contentPadding = PaddingValues(0.dp),
         modifier = modifier
             .height(FsButtonDefaults.BUTTON_HEIGHT)
             .padding(0.dp),
