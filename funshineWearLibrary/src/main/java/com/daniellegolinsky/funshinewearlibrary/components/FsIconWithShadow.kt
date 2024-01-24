@@ -1,10 +1,5 @@
 package com.daniellegolinsky.funshinewearlibrary.components
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.renderscript.Allocation
-import android.renderscript.RenderScript
-import android.renderscript.ScriptIntrinsicBlur
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
