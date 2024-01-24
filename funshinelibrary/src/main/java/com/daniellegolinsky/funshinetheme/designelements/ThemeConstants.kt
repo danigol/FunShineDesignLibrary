@@ -2,6 +2,7 @@ package com.daniellegolinsky.funshinetheme.designelements
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants.SHADOW_BLUR_RADIUS
 import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants.SHADOW_BLUR_RADIUS_HALF
@@ -58,11 +59,29 @@ object Shadow {
 
 
 // TODO these will eventually be defined differently to define degrees for a cast shadow
-fun getDefaultShadowOffset(): DpOffset = DpOffset(x = getShadowXOffset(), y= getShadowYOffset())
+fun getShadowOffset(size: DpSize): DpOffset = DpOffset(x = getSizedShadowXOffset(size), y = getSizedShadowYOffset(size))
+
+fun getDefaultShadowOffset(): DpOffset = DpOffset(x = getShadowXOffset(), y = getShadowYOffset())
 
 fun getHalfShadowOffset(): DpOffset = DpOffset(x = getHalfShadowXOffset(), y = getHalfShadowYOffset())
 
 fun getQuarterShadowOffset(): DpOffset = DpOffset(x = getQuarterShadowXOffset(), y = getQuarterShadowYOffset())
+
+fun getSizedShadowXOffset(size: DpSize): Dp {
+    return if (size.width <= 64.dp) {
+        getHalfShadowXOffset()
+    } else {
+        getShadowXOffset()
+    }
+}
+
+fun getSizedShadowYOffset(size: DpSize): Dp {
+    return if (size.width <= 64.dp) {
+        getHalfShadowYOffset()
+    } else {
+        getShadowYOffset()
+    }
+}
 
 fun getShadowXOffset(): Dp {
     return SHADOW_OFFSET_X.dp
@@ -93,7 +112,7 @@ fun getDefaultShadowBlurRadius(): Dp {
 }
 
 fun getShadowBlurRadius(imageSize: Dp): Dp {
-    return if (imageSize < 64.dp) {
+    return if (imageSize <= 64.dp) {
         SHADOW_BLUR_RADIUS_HALF.dp
     } else {
         SHADOW_BLUR_RADIUS.dp

@@ -39,7 +39,7 @@ fun FsIconWithShadow(
     providedShadowMatrix: ShadowMatrix? = null,
     modifier: Modifier = Modifier
 ) {
-    val shadowMatrix = providedShadowMatrix ?: Shadow.getDefaultInformationShadow()
+    val shadowMatrix = providedShadowMatrix ?: Shadow.getInformationShadow(size)
 
     Box(
         modifier = modifier
@@ -54,7 +54,11 @@ fun FsIconWithShadow(
                     y = shadowMatrix.shadowOffsetHeight.y,
                 )
                 .blur(radius = shadowMatrix.shadowBlur)
-                .padding(maxOf(shadowMatrix.shadowOffsetHeight.x, shadowMatrix.shadowOffsetHeight.y))
+                .padding(
+                    start = shadowMatrix.shadowOffsetHeight.x + shadowMatrix.shadowBlur,
+                    end = shadowMatrix.shadowOffsetHeight.x + shadowMatrix.shadowBlur,
+                    bottom = shadowMatrix.shadowOffsetHeight.y + shadowMatrix.shadowBlur,
+                )
                 .size(size)
         )
         Icon(
@@ -62,7 +66,11 @@ fun FsIconWithShadow(
             contentDescription = imageResourceContentDescription,
             tint = getForegroundItemColor(),
             modifier = Modifier
-                .padding(maxOf(shadowMatrix.shadowOffsetHeight.x, shadowMatrix.shadowOffsetHeight.y))
+                .padding(
+                    start = shadowMatrix.shadowOffsetHeight.x + shadowMatrix.shadowBlur,
+                    end = shadowMatrix.shadowOffsetHeight.x + shadowMatrix.shadowBlur,
+                    bottom = shadowMatrix.shadowOffsetHeight.y + shadowMatrix.shadowBlur,
+                )
                 .size(size)
         )
     }
