@@ -1,5 +1,6 @@
 package com.daniellegolinsky.funshinetheme.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -9,6 +10,7 @@ import androidx.compose.material3.SwitchDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.clearAndSetSemantics
@@ -82,7 +84,9 @@ fun FsTwoStateSwitch(
                 uncheckedTrackColor = getBackgroundColor(),
                 uncheckedBorderColor = getForegroundItemColor(),
             ),
-            thumbContent = {},
+            thumbContent = {
+                Image(painterResource(R.drawable.ic_circle_black), null)
+            },
             onCheckedChange = onOptionChanged,
             modifier = Modifier.semantics {
                 stateDescription = switchStateSelected

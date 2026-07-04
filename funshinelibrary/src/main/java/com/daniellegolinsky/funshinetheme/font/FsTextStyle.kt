@@ -7,6 +7,7 @@ import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.daniellegolinsky.funshinetheme.R
 import com.daniellegolinsky.funshinetheme.designelements.ThemeConstants
@@ -31,18 +32,22 @@ object FsTextStyle {
 }
 
 @Composable
-fun getBodyFontStyle(): TextStyle {
+fun getBodyFontStyle(
+    shadowOffsetX: Float = ThemeConstants.SHADOW_OFFSET_X,
+    shadowOffsetY: Float = ThemeConstants.SHADOW_OFFSET_Y,
+    blurRadius: Float = ThemeConstants.SHADOW_BLUR_RADIUS,
+): TextStyle {
     return typography.bodyLarge.copy(
         shadow = Shadow(
             color = colorResource(id = R.color.black).copy(alpha = getShadowAlpha()),
             offset = Offset(
-                x = ThemeConstants.SHADOW_OFFSET_X,
-                y = ThemeConstants.SHADOW_OFFSET_Y,
+                x = shadowOffsetX,
+                y = shadowOffsetY,
             ),
-            blurRadius = ThemeConstants.SHADOW_BLUR_RADIUS
+            blurRadius = blurRadius,
         ),
         fontWeight = FontWeight(BODY_FONT_WEIGHT),
-        fontSize = BODY_FONT_SIZE.sp
+        fontSize = BODY_FONT_SIZE.sp,
     )
 }
 
@@ -50,23 +55,27 @@ fun getBodyFontStyle(): TextStyle {
 fun getBodyFontStyleWithoutShadow(): TextStyle {
     return typography.bodyLarge.copy(
         fontWeight = FontWeight(BODY_FONT_WEIGHT),
-        fontSize = BODY_FONT_SIZE.sp
+        fontSize = BODY_FONT_SIZE.sp,
     )
 }
 
 @Composable
-fun getHeadingFontStyle(): TextStyle {
+fun getHeadingFontStyle(
+    shadowOffsetX: Float = ThemeConstants.SHADOW_OFFSET_X,
+    shadowOffsetY: Float = ThemeConstants.SHADOW_OFFSET_Y,
+    blurRadius: Float = ThemeConstants.SHADOW_BLUR_RADIUS,
+): TextStyle {
     return typography.bodyLarge.copy(
         shadow = Shadow(
             color = colorResource(id = R.color.black).copy(alpha = getShadowAlpha()),
             offset = Offset(
-                x = ThemeConstants.SHADOW_OFFSET_X,
-                y = ThemeConstants.SHADOW_OFFSET_Y,
+                x = shadowOffsetX,
+                y = shadowOffsetY,
             ),
-            blurRadius = ThemeConstants.SHADOW_BLUR_RADIUS
+            blurRadius = blurRadius,
         ),
         fontWeight = FontWeight(HEADING_FONT_WEIGHT),
-        fontSize = HEADING_FONT_SIZE.sp
+        fontSize = HEADING_FONT_SIZE.sp,
     )
 }
 
