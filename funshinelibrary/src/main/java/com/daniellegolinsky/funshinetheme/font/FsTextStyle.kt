@@ -52,24 +52,24 @@ fun getBodyFontStyle(
 }
 
 @Composable
-fun getBodyFontStyleWithoutShadow(): TextStyle {
-    return typography.bodyLarge.copy(
-        fontWeight = FontWeight(BODY_FONT_WEIGHT),
-        fontSize = BODY_FONT_SIZE.sp,
-    )
-}
-
-@Composable
-fun getHeadingFontStyle(isOnSmallDisplay: Boolean = false): TextStyle {
+fun getBodyFontStyle(isOnSmallDisplay: Boolean): TextStyle {
     return if (isOnSmallDisplay) {
-        getHeadingFontStyle(
+        getBodyFontStyle(
             shadowOffsetX = ThemeConstants.SHADOW_OFFSET_X_QUARTER,
             shadowOffsetY = ThemeConstants.SHADOW_OFFSET_Y_QUARTER,
             blurRadius = ThemeConstants.SHADOW_BLUR_RADIUS_QUARTER,
         )
     } else {
-        getHeadingFontStyle()
+        getBodyFontStyle()
     }
+}
+
+@Composable
+fun getBodyFontStyleWithoutShadow(): TextStyle {
+    return typography.bodyLarge.copy(
+        fontWeight = FontWeight(BODY_FONT_WEIGHT),
+        fontSize = BODY_FONT_SIZE.sp,
+    )
 }
 
 @Composable
@@ -90,6 +90,19 @@ fun getHeadingFontStyle(
         fontWeight = FontWeight(HEADING_FONT_WEIGHT),
         fontSize = HEADING_FONT_SIZE.sp,
     )
+}
+
+@Composable
+fun getHeadingFontStyle(isOnSmallDisplay: Boolean): TextStyle {
+    return if (isOnSmallDisplay) {
+        getHeadingFontStyle(
+            shadowOffsetX = ThemeConstants.SHADOW_OFFSET_X_QUARTER,
+            shadowOffsetY = ThemeConstants.SHADOW_OFFSET_Y_QUARTER,
+            blurRadius = ThemeConstants.SHADOW_BLUR_RADIUS_QUARTER,
+        )
+    } else {
+        getHeadingFontStyle()
+    }
 }
 
 @Composable
