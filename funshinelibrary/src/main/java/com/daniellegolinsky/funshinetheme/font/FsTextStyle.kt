@@ -60,6 +60,19 @@ fun getBodyFontStyleWithoutShadow(): TextStyle {
 }
 
 @Composable
+fun getHeadingFontStyle(isOnSmallDisplay: Boolean = false): TextStyle {
+    return if (isOnSmallDisplay) {
+        getHeadingFontStyle(
+            shadowOffsetX = ThemeConstants.SHADOW_OFFSET_X_QUARTER,
+            shadowOffsetY = ThemeConstants.SHADOW_OFFSET_Y_QUARTER,
+            blurRadius = ThemeConstants.SHADOW_BLUR_RADIUS_QUARTER,
+        )
+    } else {
+        getHeadingFontStyle()
+    }
+}
+
+@Composable
 fun getHeadingFontStyle(
     shadowOffsetX: Float = ThemeConstants.SHADOW_OFFSET_X,
     shadowOffsetY: Float = ThemeConstants.SHADOW_OFFSET_Y,
